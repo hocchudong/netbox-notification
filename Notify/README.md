@@ -93,13 +93,13 @@ python3 main.py
 ```
 Mẫu khởi chạy thành công:
 
-![](/Anh/Screenshot_1009.png)
+![](/Notify/Picture/Screenshot_1009.png)
 
 Hình ảnh mẫu kết quả trên Telegram:
 
-![](/Anh/Screenshot_1011.png)
+![](/Notify//Picture/Screenshot_1020.png)
 
 Hình ảnh mẫu journal được tạo:
 
-![](/Anh/Screenshot_1012.png)
+![](/Notify/Picture/Screenshot_1012.png)
 
