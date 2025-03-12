@@ -1,7 +1,7 @@
 # Hướng dẫn sử dụng Warning Tools
 Cách cài đặt và sử dụng Warning Tools
 ## Giới thiệu
-`Warning Tools` là một chương trình được viết bằng ngôn ngữ Python. Nó sẽ kết hợp với Telegram, NetBox để gửi cảnh báo khi có sự thay đổi ở trên NetBox
+`Notify Tools` là một chương trình được viết bằng ngôn ngữ Python. Nó sẽ kết hợp với Telegram, NetBox để gửi cảnh báo khi có sự thay đổi ở trên NetBox
 
 Chương trình hoạt động thông qua cấu hình Event Rules và WebHooks của NetBox, để gửi cảnh báo về Telegram. Đồng thời cũng sẽ ghi lại vào Journal của đối tượng bị thay đổi
 
@@ -9,6 +9,7 @@ Chương trình hoạt động thông qua cấu hình Event Rules và WebHooks c
 - Gửi cảnh báo khi Thêm thiết bị (Ghi journal) 
 - Gửi cảnh báo khi Cập nhật thiết bị (Ghi journal)
 - Gửi cảnh báo khi Xóa thiết bị
+- Tương tự đối với VM
 
 ## Yêu cầu cần có
 - NetBox phiên bản `3.7` trở lên
@@ -16,7 +17,7 @@ Chương trình hoạt động thông qua cấu hình Event Rules và WebHooks c
   - Có cấu hình ***WebHooks***
 - Server Linux (Ubuntu/CentOS)
   - Server có khả năng kết nối tới NetBox
-  - Server này sẽ đóng vai trò làm nơi nhận data từ ***WebHooks***
+  - Server này sẽ đồng thời đóng vai trò làm ***Webhooks***
   - Chương trình sẽ được chạy trên Server này
 
 ## Cài đặt
@@ -52,9 +53,10 @@ http://<ip>:<webhooks_ports>/webhooks
 - Ví dụ: `http://172.16.66.82:5000/webhooks` là 1 URL đúng
 
 ### Cấu hình Event Rules
-Chương trình hiện tại có thể làm việc với 2 loại Event
-- **Create** - Tạo 1 device mới
-- **Update** - Chỉnh sửa 1 device nào đó
+Chương trình hiện tại có thể làm việc với 3 loại Event
+- **Create** - Tạo 1 object mới
+- **Update** - Chỉnh sửa 1 object nào đó
+- **Delete** - Xóa 1 object nào đó
 
 ### Cấu hình Server
 Đảm bảo Server của bạn đáp ứng các yêu cầu sau
@@ -86,7 +88,8 @@ sudo firewall-cmd --zone=public --add-port=5000/tcp --permanent
 ## Khởi chạy
 Truy cập vào nơi lưu file code
 ```
-python3 warning.py
+cd App
+python3 main.py
 ```
 Mẫu khởi chạy thành công:
 

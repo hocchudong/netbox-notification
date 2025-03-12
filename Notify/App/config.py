@@ -2,11 +2,11 @@ import logging
 import pynetbox
 import urllib3
 
-TELEGRAM_BOT_TOKEN = "8132391475:AAHpdLS6HQ7m2LJ5t8_NYptdhiapQXHmiqY"
-TELEGRAM_CHAT_ID = "6012746677"  
-WEBHOOKS_PORTS = "5000"
-URL_NETBOX = "https://www.netboxlab.local"
-TOKEN_NETBOX = "aa8f29998abd6a63f476a2328ce2a629a506b579"
+TELEGRAM_BOT_TOKEN = "Enter your Bot Token here!"
+TELEGRAM_CHAT_ID = "Enter your Chat ID here!"  
+WEBHOOKS_PORTS = "Enter Port run app here!"
+URL_NETBOX = "Enter your NetBox URL here!"
+TOKEN_NETBOX = "Enter your NetBox Token here!"
 
 # Logging bassic config
 logging.basicConfig(
@@ -14,7 +14,7 @@ logging.basicConfig(
     level=logging.INFO
 )
 
-# Netbox config
+# Netbox config(No SSL Check!)
 nb = pynetbox.api(URL_NETBOX,token=TOKEN_NETBOX)
 nb.http_session.verify = False   
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
